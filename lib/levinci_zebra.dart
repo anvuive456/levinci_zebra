@@ -1,3 +1,5 @@
+import 'package:levinci_zebra/models/printer.dart';
+
 import 'levinci_zebra_platform_interface.dart';
 
 class LevinciZebra {
@@ -5,19 +7,19 @@ class LevinciZebra {
     return LevinciZebraPlatform.instance.getPlatformVersion();
   }
 
-  Future<dynamic> discoverLanDevices({int? hops}) {
+  Future<List<DiscoveredPrinter>?> discoverLanDevices({int? hops}) {
     return LevinciZebraPlatform.instance.discoverLanDevices(hops: hops);
   }
 
-  Future<dynamic> discoverByLan() {
+  Future<List<DiscoveredPrinter>?> discoverByLan() {
     return LevinciZebraPlatform.instance.discoverByLan();
   }
 
-  Future<dynamic> discoverByBroadcast() {
+  Future<List<DiscoveredPrinter>?> discoverByBroadcast() {
     return LevinciZebraPlatform.instance.discoverByBroadcast();
   }
 
-  Future<dynamic> discoverByHops({required int hops}) {
+  Future<List<DiscoveredPrinter>?> discoverByHops({required int hops}) {
     return LevinciZebraPlatform.instance.discoverByHops(hops: hops);
   }
 
