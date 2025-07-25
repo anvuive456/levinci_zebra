@@ -33,6 +33,16 @@ class DiscoveredPrinter {
   String toString() {
     return 'DiscoveredPrinter(address: $address, dnsName: $dnsName, port: $port)';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is DiscoveredPrinter && other.address == address;
+  }
+
+  @override
+  int get hashCode => address.hashCode;
 }
 
 class DiscoveredPrinterUsb extends DiscoveredPrinter {
