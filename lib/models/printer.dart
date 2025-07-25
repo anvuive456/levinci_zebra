@@ -18,7 +18,7 @@ class DiscoveredPrinter {
 
   factory DiscoveredPrinter.fromMap(Map<String, dynamic> map) {
     return DiscoveredPrinter(
-      address: map['address'] as String,
+      address: map['address'] ?? '',
       dnsName: map['dnsName'] as String?,
       port: map['port'] as int?,
     );

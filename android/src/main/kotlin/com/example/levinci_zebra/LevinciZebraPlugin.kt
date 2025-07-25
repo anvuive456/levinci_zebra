@@ -39,8 +39,14 @@ class LevinciZebraPlugin : FlutterPlugin, MethodCallHandler {
           val handler = object : DiscoveryHandler {
             override fun foundPrinter(printer: DiscoveredPrinter) {
               val info = mutableMapOf<String, Any>()
-              info["ip"] = printer.address
-              info["name"] = printer.discoveryDataMap["name"] ?: printer.address ?: "Unknown"
+              println("Found printer: ${printer.address} ${printer.discoveryDataMap}")
+
+              val port = printer.discoveryDataMap["port"]
+              if (port != null) {
+                info["port"] = port.toInt()
+              }
+              info["dnsName"] = printer.discoveryDataMap["dnsName"] ?: "Unknown"
+              info["address"] = printer.address
               printers.add(info)
             }
 

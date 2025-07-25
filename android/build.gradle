@@ -33,12 +33,12 @@ android {
     compileSdk = 34
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "17"
     }
 
     sourceSets {
@@ -55,6 +55,10 @@ android {
         testImplementation("org.mockito:mockito-core:5.0.0")
 //        implementation files('src/main/kotlin/com/example/levinci_zebra/lib/ZSDK_ANDROID_API.jar')
         implementation fileTree(dir: 'src/main/kotlin/com/example/levinci_zebra/lib', include: ['*.jar'])
+        implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
+        implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+
     }
 
     testOptions {
@@ -66,6 +70,11 @@ android {
                outputs.upToDateWhen {false}
                showStandardStreams = true
             }
+        }
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/DEPENDENCIES'
         }
     }
 }
