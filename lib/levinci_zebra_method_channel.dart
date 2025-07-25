@@ -81,8 +81,10 @@ class MethodChannelLevinciZebra extends LevinciZebraPlatform {
     final devices = await methodChannel.invokeMethod<dynamic>(
       'discover_by_usb',
     );
-
-    return devices;
+    return devices
+        ?.map<DiscoveredPrinter>(
+            (e) => DiscoveredPrinterUsb.fromMap(e.cast<String, dynamic>()))
+        .toList();
   }
 
   @override
