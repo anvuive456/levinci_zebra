@@ -75,4 +75,23 @@ class MethodChannelLevinciZebra extends LevinciZebraPlatform {
       'command': command,
     });
   }
+
+  @override
+  Future<List<DiscoveredPrinter>?> discoverByUsb() async {
+    final devices = await methodChannel.invokeMethod<dynamic>(
+      'discover_by_usb',
+    );
+
+    return devices;
+  }
+
+  @override
+  Future<void> sendCommandUsb(
+      {required String deviceAddress, required String command}) {
+    return methodChannel
+        .invokeMethod<void>('send_command_usb', <String, dynamic>{
+      'deviceAddress': deviceAddress,
+      'command': command,
+    });
+  }
 }

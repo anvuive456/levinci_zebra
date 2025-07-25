@@ -41,4 +41,11 @@ abstract class LevinciZebraPlatform extends PlatformInterface {
     required int port,
     required String command,
   });
+
+  Future<void> sendCommandUsb({
+    required String deviceAddress,
+    required String command,
+  });
+
+  Future<List<DiscoveredPrinter>?> discoverByUsb();
 }

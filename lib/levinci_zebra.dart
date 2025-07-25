@@ -23,9 +23,20 @@ class LevinciZebra {
     return LevinciZebraPlatform.instance.discoverByHops(hops: hops);
   }
 
+  Future<List<DiscoveredPrinter>?> discoverByUsb() {
+    return LevinciZebraPlatform.instance.discoverByUsb();
+  }
+
+
   Future<void> sendCommand(
       {required String ipAddress, required int port, required String command}) {
     return LevinciZebraPlatform.instance
         .sendCommand(ipAddress: ipAddress, port: port, command: command);
+  }
+
+  Future<void> sendCommandUsb(
+      {required String deviceAddress, required String command}) {
+    return LevinciZebraPlatform.instance
+        .sendCommandUsb(deviceAddress: deviceAddress, command: command);
   }
 }
