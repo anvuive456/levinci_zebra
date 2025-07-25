@@ -45,7 +45,7 @@ class LevinciZebraPlugin : FlutterPlugin, MethodCallHandler {
               if (port != null) {
                 info["port"] = port.toInt()
               }
-              info["dnsName"] = printer.discoveryDataMap["dnsName"] ?: "Unknown"
+              info["dnsName"] = printer.discoveryDataMap["DNS_NAME"] ?: "Unknown"
               info["address"] = printer.address
               printers.add(info)
             }
