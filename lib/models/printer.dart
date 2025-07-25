@@ -34,3 +34,21 @@ class DiscoveredPrinter {
     return 'DiscoveredPrinter(address: $address, dnsName: $dnsName, port: $port)';
   }
 }
+
+class DiscoveredPrinterUsb extends DiscoveredPrinter {
+  final String deviceAddress;
+
+  DiscoveredPrinterUsb({
+    required this.deviceAddress,
+    required super.address,
+    super.dnsName,
+  });
+
+  factory DiscoveredPrinterUsb.fromMap(Map<String, dynamic> map) {
+    return DiscoveredPrinterUsb(
+      deviceAddress: map['address'] ?? '',
+      address: map['address'] ?? '',
+      dnsName: map['dnsName'] as String?,
+    );
+  }
+}

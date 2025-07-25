@@ -77,7 +77,7 @@ class MethodChannelLevinciZebra extends LevinciZebraPlatform {
   }
 
   @override
-  Future<List<DiscoveredPrinter>?> discoverByUsb() async {
+  Future<List<DiscoveredPrinterUsb>?> discoverByUsb() async {
     final devices = await methodChannel.invokeMethod<dynamic>(
       'discover_by_usb',
     );
