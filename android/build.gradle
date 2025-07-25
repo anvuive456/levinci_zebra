@@ -53,7 +53,8 @@ android {
     dependencies {
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.mockito:mockito-core:5.0.0")
-        implementation files('src/main/kotlin/com/example/levinci_zebra/lib/ZSDK_ANDROID_API.jar')
+//        implementation files('src/main/kotlin/com/example/levinci_zebra/lib/ZSDK_ANDROID_API.jar')
+        implementation fileTree(dir: 'src/main/kotlin/com/example/levinci_zebra/lib', include: ['*.jar'])
     }
 
     testOptions {
